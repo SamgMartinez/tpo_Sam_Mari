@@ -85,8 +85,11 @@ function ListaDeProyectos({actualizarApp, listaProyectos, cambiarProyectoElegido
 
             <ul className='container-fluid box'>
                 {
-                    listaProyectos.length === 0 ? (
-                    <p>Cargando proyectos...</p>
+                    listaProyectos.length === 0 ? (<div>
+                        <p>Cree un nuevo Proyecto</p>
+                        <p>ya tienes proyectos?</p>
+                        <p>espere, se estan cargando</p>
+                    </div>
                     ) : listaProyectos && listaProyectos.map((proyecto) => {
                     return (
                         <PlantillaListaProyecto 

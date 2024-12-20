@@ -1,31 +1,30 @@
 import toast from "react-hot-toast";
 
 export async function validarLogin(email, clave) {
-    const linkApi = process.env.REACT_APP_BACKEND_URL + '/api/usuarios/login';
-    try {
-        const respuesta = await fetch(linkApi, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json', // Especificamos que el cuerpo es JSON
-            },
-            body: JSON.stringify({ email, clave }), // Convertimos los datos a JSON
-        });
+  const linkApi = process.env.REACT_APP_BACKEND_URL + '/api/usuarios/login';
+  try {
+    const respuesta = await fetch(linkApi, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json', // Especificamos que el cuerpo es JSON
+      },
+      body: JSON.stringify({ email, clave }), // Convertimos los datos a JSON
+    });
 
-        const dataJson = await respuesta.json();
-        if(respuesta.status === 200){
-            const token = await dataJson.token;
-            const usuarioID = await dataJson.usuario.id;
-            sessionStorage.setItem("token", token);
-            sessionStorage.setItem("usuarioID", usuarioID);
-            sessionStorage.setItem("usuarioNombre", dataJson.usuario.nombre)
-            
-            toast.success("Inicio de sesión exitoso");
-        }
-        return dataJson;
-    } catch (error) {
-        console.error('Error al iniciar sesión:', error);
-        return null;
+    const dataJson = await respuesta.json();
+    if(respuesta.status === 200){
+      const token = await dataJson.token;
+      const usuarioID = await dataJson.usuario.id;
+      sessionStorage.setItem("token", token);
+      sessionStorage.setItem("usuarioID", usuarioID);
+      sessionStorage.setItem("usuarioNombre", dataJson.usuario.nombre)
+      toast.success("Inicio de sesión exitoso");
     }
+    return dataJson;
+  }catch(error) {
+    toast.error('Error al iniciar sesión');
+    return null;
+  }
 }
 
 export async function registrarUsuario(email, clave, nombre){

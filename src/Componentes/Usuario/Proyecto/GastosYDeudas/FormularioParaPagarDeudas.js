@@ -50,7 +50,7 @@ export default function FormularioParaPagarDeudas ({proyecto, visibilidad, cerra
             >
                 {listaDeudasImpagas.map((deuda) => (
                     <MenuItem key={deuda.ID} value={deuda}>
-                        Cobrador {nombreDelUsuarioPorID(proyecto, deuda.cobradorId)} monto: ${deuda.monto}
+                        deuda a {nombreDelUsuarioPorID(proyecto, deuda.cobradorId)} de ${deuda.monto}
                     </MenuItem>
                 ))}
             </TextField>

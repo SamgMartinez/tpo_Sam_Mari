@@ -10,22 +10,27 @@ export default function GastoPlantilla ({pago, borrar, proyecto}) {
             <Typography variant='subtitle1' 
                 sx={{flex: 1 }}
             >
-                Deudor: {nombreDelUsuarioPorID(proyecto, pago.deudorId)}
+                De: {nombreDelUsuarioPorID(proyecto, pago.deudorId)}
             </Typography>
             <Typography variant='subtitle1' 
                 sx={{flex: 1 }}
             >
-                Acreedor: {nombreDelUsuarioPorID(proyecto, pago.cobradorId)}
+                Para: {nombreDelUsuarioPorID(proyecto, pago.cobradorId)}
             </Typography>
             <Typography variant='subtitle2' 
                 sx={{flex: 1 }}
             >
                 {pago.createdAt.slice(0, 10)}
             </Typography>
+            <Typography variant='subtitle2' 
+                sx={{flex: 1 }}
+            >
+                % = {(pago.porcentaje * 100).toFixed(1)}
+            </Typography>
             <Typography variant='h5' 
                 sx={{ flex: 1,}}
             >
-                {pago.monto}
+                ${pago.monto}
             </Typography>
         </li>
     )
