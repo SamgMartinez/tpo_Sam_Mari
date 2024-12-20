@@ -3,6 +3,8 @@ import React from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { nombreDelUsuarioPorID } from '../../../../Servicios/ProyectosFunciones';
 import ImagenButton from './ImagenButton';
+
+
 export default function GastoPlantilla ({gasto, borrar, proyecto}) {
 
     const botonBorrar = () => {

@@ -5,6 +5,7 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { SumaDeGastosPorUsuario } from '../../../../Servicios/GastosFunciones';
 import { totalAdeudadoPorUsuario, totalPorCobrarPorUsuario } from '../../../../Servicios/DeudasFunciones';
+import FotoDePerfil from '../../../../imagenes/FotoPerfilEnBlanco.jpg';
 
 export default function Participantes({proyecto, usuario}) {
   let ingresosPendientes = totalPorCobrarPorUsuario(proyecto, usuario.ID);
@@ -18,7 +19,7 @@ export default function Participantes({proyecto, usuario}) {
           id="panel1-header" className='itemsAccodion'
         >
           <div id="datosParticipante">
-            <img src={usuario.imagen} alt={usuario.nombre} className="participante-imagen"/>
+            <img src={usuario.imagen === '' ? FotoDePerfil : usuario.imagen} alt={usuario.nombre} className="participante-imagen"/>
             <Typography id="nombre-participante" variant='h6'>
               {usuario.nombre}
             </Typography>
