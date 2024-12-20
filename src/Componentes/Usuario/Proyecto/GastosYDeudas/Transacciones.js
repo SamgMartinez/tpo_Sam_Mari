@@ -2,7 +2,7 @@ import { Typography, Divider, ToggleButtonGroup, ToggleButton, Button} from '@mu
 import React from 'react';
 import ListaDeTransacciones from './ListaDeTransacciones';
 import { gastosTotalesDelProyecto } from '../../../../Servicios/GastosFunciones';
-import { listaDeudasPagadas, totalDeudasPagadas, totalImpagoDelProyecto } from '../../../../Servicios/DeudasFunciones';
+import { listaDeudasPagadas, totalDeudasPagadas } from '../../../../Servicios/DeudasFunciones';
 import FormularioParaGasto from './FormularioParaGasto';
 import FormularioParaPagarDeudas from './FormularioParaPagarDeudas';
 

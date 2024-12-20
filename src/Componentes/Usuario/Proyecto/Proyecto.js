@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Button, DialogActions, DialogContent, TextField, DialogTitle, Dialog, ToggleButtonGroup, ToggleButton} from '@mui/material';
+import {Button, ToggleButtonGroup, ToggleButton} from '@mui/material';
 import ParticipantesList from './Participantes/ParticipantesList';
 import InfoProyecto from './InformacionProyecto';
 import EditIcon from '@mui/icons-material/Edit';
@@ -12,20 +12,16 @@ import { modificarNombreDelProyecto } from '../../../Api/apiProyectos';
 
 function Proyecto({ proyectoElegido , actualizarApp}) {
     let proyecto = proyectoElegido;
-    const [cantidad, setCantidad] = useState(0);
     const [alignment, setAlignment] = useState('datos');
     const [vistaFormNombre, setVistaFromNombre] = useState(false);
     let proyectoID = proyecto !== null ? proyecto.ID : null;
+    let headerProyecto;
+    let main;
     
     const handleChange = (event, newAlignment) => {
         setAlignment(newAlignment);
     };
 
-    const eliminarParticipante = () => {
-        setCantidad(cantidad - 1); 
-    };
-
-    let headerProyecto;
     if (proyectoID && proyecto) {
         headerProyecto = (
             <nav id='navProyecto'>
@@ -64,7 +60,6 @@ function Proyecto({ proyectoElegido , actualizarApp}) {
         );
     }
 
-    let main;
     if (proyectoID && proyecto) {
         switch (alignment) {
             case 'datos':
@@ -73,11 +68,8 @@ function Proyecto({ proyectoElegido , actualizarApp}) {
             case 'participantes':
                 main = <ParticipantesList proyecto={proyecto} actualizarApp={actualizarApp}/>;
                 break;
-            case 'transacciones':
-                main = <Transacciones proyecto={proyecto} actualizarApp={actualizarApp}/>;
-                break;
             default:
-                main = <InfoProyecto proyecto={proyecto} actualizarApp={actualizarApp}/>;
+                main = <Transacciones proyecto={proyecto} actualizarApp={actualizarApp}/>;
         }
     }
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Dialog, DialogActions, DialogContent, DialogTitle, Button, TextField, MenuItem} from '@mui/material';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
-import { deudasImpagasUsuarioPorProyecto, pagarDeudaPorID } from '../../../../Api/apiDeudas';
+import { pagarDeudaPorID } from '../../../../Api/apiDeudas';
 import { nombreDelUsuarioPorID } from '../../../../Servicios/ProyectosFunciones';
 import subirImagenACloudinary from '../../../../Servicios/SubirImagen';
 

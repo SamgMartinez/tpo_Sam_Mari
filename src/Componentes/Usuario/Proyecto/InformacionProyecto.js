@@ -1,15 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import {
-    Typography,
-    Divider,
-    Button,
-    Box,
-    Dialog,
-    DialogTitle,
-    DialogContent,
-    TextField,
-    DialogActions,
-} from '@mui/material';
+import React, { useState } from 'react';
+import {Typography,Divider,Button,Box,Dialog,DialogTitle,DialogContent,TextField,DialogActions} from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import { gastosTotalesDelProyecto, SumaDeGastosPorUsuario } from '../../../Servicios/GastosFunciones';
 import { totalAdeudadoPorUsuario, totalImpagoDelProyecto, totalPorCobrarPorUsuario } from '../../../Servicios/DeudasFunciones';

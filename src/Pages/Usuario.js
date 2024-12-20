@@ -7,23 +7,21 @@ import Proyecto from '../Componentes/Usuario/Proyecto/Proyecto';
 function Usuario (){
     const [listaProyectos, setListaProyectos] = useState([]);
     const [proyectoElegido, setProyecto] = useState(null);
-    let cantidadDeProyectos = listaProyectos.length;
 
-    const cargarLosProyectos = async () => {
+    const cargarLosProyectos = useCallback(async () => {
         try {
             const listaAuxiliar = await getProyectos();
             if (JSON.stringify(listaAuxiliar) !== JSON.stringify(listaProyectos)) {
                 setListaProyectos(listaAuxiliar);
-                cantidadDeProyectos = listaProyectos.length;
             }
-        } catch (error){
+        } catch (error) {
             console.log("### ERROR ###\n### en el useEffect, de la page Usuarios ###\n### Tratando de cargarLosProyectos\n");
         }
-    };
+    }, [listaProyectos]);
 
     useEffect(() => {
         cargarLosProyectos();
-    },[]);
+    },[cargarLosProyectos]);
 
     const actualizarApp = async () => {
         await cargarLosProyectos();

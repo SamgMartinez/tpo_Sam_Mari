@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useState } from 'react';
 import { buscarUsuario } from '../../../../Api/apiUsuarios';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import { agregarParticipante } from '../../../../Api/apiProyectos';

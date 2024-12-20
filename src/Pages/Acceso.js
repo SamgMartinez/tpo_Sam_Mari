@@ -5,7 +5,7 @@ import '../Componentes/IniciarSesion/style.css';
 
 function IniciarSesion (props) {
     let Formulario;
-    if(props.pag == "iniciar"){
+    if(props.pag === "iniciar"){
         Formulario = FormularioInicio;
     }else{
         Formulario = FormularioRegistro;

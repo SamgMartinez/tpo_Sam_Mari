@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { Button, TextField, CircularProgress, Typography } from '@mui/material';
 import './RecuperarContraseña.css'; 
-import { recuperarContraseña } from '../Api/apiUsuarios'; 
-  
-import { Link } from 'react-router-dom';
+import { recuperarContraseña } from '../Api/apiUsuarios';
 
 function RecuperarContraseña() {
   const [email, setEmail] = useState(""); 

@@ -10,7 +10,7 @@ function Footer(){
     return ( 
         <footer className="footer">
          <div className="footer-1">
-         <a className="footer-logo" >
+         <a className="footer-logo"  href={process.env.REACT_APP_BACKEND_URL} target="_blank" rel="noopener noreferrer">
             <img className="footer-logo-m" src={logo} alt="Logo" />
         </a>
 
@@ -22,13 +22,13 @@ function Footer(){
                 <li>Colaboraciones</li>
             </ul>
             <div className="footer-links-1">
-                <a>
-                <img className="footer-logo-r" src={logo1} alt="Logo" />
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                <img className="footer-logo-r" src={logo1} alt="LogoFacebook" />
                 </a>
-                <a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
                 <img className="footer-logo-r" src={logo2} alt="Logo" />
                 </a>
-                <a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
                 <img className="footer-logo-r" src={logo3} alt="Logo" />
                 </a>
                 

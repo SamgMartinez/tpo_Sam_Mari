@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PlantillaListaProyecto from './PlantillaListaProyectos';
 import {crearProyecto, eliminarProyectoApi} from '../../../Api/apiProyectos';
