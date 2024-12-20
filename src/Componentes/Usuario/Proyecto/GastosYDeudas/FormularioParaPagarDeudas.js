@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Dialog, DialogActions, DialogContent, DialogTitle, Button, TextField, MenuItem} from '@mui/material';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import { deudasImpagasUsuarioPorProyecto, pagarDeudaPorID } from '../../../../Api/apiDeudas';

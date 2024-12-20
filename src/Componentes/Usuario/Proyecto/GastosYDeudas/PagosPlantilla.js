@@ -1,22 +1,12 @@
 import { Typography , Button} from '@mui/material';
 import React from 'react';
 import { nombreDelUsuarioPorID } from '../../../../Servicios/ProyectosFunciones';
+import ImagenButton from './ImagenButton';
     
 export default function GastoPlantilla ({pago, borrar, proyecto}) {
     return (
         <li>
-            <Button variant='text'
-                sx={{
-                    borderColor: 'black',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center'
-                }}
-            >
-                <figure>
-                    <img src={pago.imagen} alt='ticket de compra'/>
-                </figure>
-            </Button>
+            <ImagenButton imagen={pago.imagen}/>
             <Typography variant='subtitle1' 
                 sx={{flex: 1 }}
             >

@@ -2,6 +2,7 @@ import { Typography , Button} from '@mui/material';
 import React from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { nombreDelUsuarioPorID } from '../../../../Servicios/ProyectosFunciones';
+import ImagenButton from './ImagenButton';
 export default function GastoPlantilla ({gasto, borrar, proyecto}) {
 
     const botonBorrar = () => {
@@ -12,18 +13,7 @@ export default function GastoPlantilla ({gasto, borrar, proyecto}) {
     }
     return (
         <li>
-            <Button variant='text'
-                sx={{
-                    borderColor: 'black',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center'
-                }}
-            >
-                <figure>
-                    <img src={gasto.imagen} alt='ticket de compra'/>
-                </figure>
-            </Button>
+            <ImagenButton imagen={gasto.imagen}/>
             <Typography variant='subtitle1' 
                 sx={{flex: 2 }}
             >
