@@ -89,5 +89,77 @@ export async function buscarUsuario(nombreUsuarioBuscado) {
   }else{
     return [];
   }
+}
+
+export async function getUsuarioLogeado() {
+  const myHeaders = new Headers();
+  myHeaders.append("jwt", sessionStorage.getItem("token"));
   
+  const requestOptions = {
+    method: "GET",
+    headers: myHeaders,
+    redirect: "follow"
+  };
+  
+  const respuestaApi = await fetch(process.env.REACT_APP_BACKEND_URL + "/api/usuarios/" + sessionStorage.getItem("usuarioID"), requestOptions);
+  if(respuestaApi.status === 200){
+    const dataJson = await respuestaApi.json();
+    return dataJson;
+  }else{
+    toast.error("Error al buscar la informacion del Usuario");
+    return [];
+  }
+}
+
+export async function modificarImagenUsuario(imagenUrl) {
+  const myHeaders = new Headers();
+  myHeaders.append("jwt", sessionStorage.getItem("token"));
+  myHeaders.append("Content-Type", "application/json");
+
+  const raw = JSON.stringify({
+    "ID": sessionStorage.getItem("usuarioID"),
+    "imagen": imagenUrl
+  });
+
+  const requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: raw,
+    redirect: "follow"
+  };
+
+  const respuestaApi = await fetch(process.env.REACT_APP_BACKEND_URL + "/api/usuarios/modificarUsuario", requestOptions);
+  if(respuestaApi.status === 200){
+    toast.success("Se cambio la imagen correctamente");
+  }else{
+    toast.error("Error al cambiar la imagen");
+  }
+}
+
+export async function modificarPerfilUsuario(nombre, edad, email, fechaNacimiento) {
+  const myHeaders = new Headers();
+  myHeaders.append("jwt", sessionStorage.getItem("token"));
+  myHeaders.append("Content-Type", "application/json");
+
+  const raw = JSON.stringify({
+    "ID": sessionStorage.getItem("usuarioID"),
+    "nombre": nombre,
+    "email" : email,
+    "edad" : edad,
+    "fechaNacimiento" : fechaNacimiento,
+  });
+
+  const requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: raw,
+    redirect: "follow"
+  };
+
+  const respuestaApi = await fetch(process.env.REACT_APP_BACKEND_URL + "/api/usuarios/modificarUsuario", requestOptions);
+  if(respuestaApi.status === 200){
+    toast.success("Se cambio la imagen correctamente");
+  }else{
+    toast.error("Error al cambiar la imagen");
+  }
 }
